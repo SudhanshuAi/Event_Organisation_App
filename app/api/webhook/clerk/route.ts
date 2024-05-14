@@ -1,9 +1,10 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { WebhookEvent, clerkClient } from '@clerk/nextjs/server'
-import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions'
+
 
 import { NextResponse } from 'next/server'
+import { createUser, deleteUser, updateUser } from '@/lib/actions/user.actions'
  
 export async function POST(req: Request) {
  
@@ -61,8 +62,8 @@ export async function POST(req: Request) {
       clerkId: id,
       email: email_addresses[0].email_address,
       username: username!,
-      firstName: first_name,
-      lastName: last_name,
+      firstName: first_name || '',
+      lastName: last_name || '',
       photo: image_url,
     }
 
@@ -83,8 +84,8 @@ export async function POST(req: Request) {
     const {id, image_url, first_name, last_name, username } = evt.data
 
     const user = {
-      firstName: first_name,
-      lastName: last_name,
+      firstName: first_name || '',
+      lastName: last_name || '',
       username: username!,
       photo: image_url,
     }
