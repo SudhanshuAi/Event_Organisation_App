@@ -100,6 +100,10 @@ Replace the placeholder values with your actual credentials
 **Running the Project**
 
 ```bash
+npm run build
+```
+
+```bash
 npm start
 ```
 
